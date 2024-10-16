@@ -1,12 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use server';
 
-// import { ID, InputFile, Query } from 'node-appwrite';
-import {
-  ID,
-
-  // InputFile,
-  Query,
-} from 'node-appwrite';
+import { ID, Query } from 'node-appwrite';
+import { InputFile } from 'node-appwrite/file';
 
 import {
   BUCKET_ID,
@@ -15,7 +11,7 @@ import {
   PATIENT_COLLECTION_ID,
   PROJECT_ID,
   databases,
-  // storage,
+  storage,
   users,
 } from '../appwrite.config';
 import { parseStringify } from '../utils';
@@ -23,7 +19,6 @@ import { parseStringify } from '../utils';
 // CREATE APPWRITE USER
 export const createUser = async (user: CreateUserParams) => {
   try {
-    // Create new user -> https://appwrite.io/docs/references/1.5.x/server-nodejs/users#create
     const newuser = await users.create(
       ID.unique(),
       user.email,
@@ -33,11 +28,9 @@ export const createUser = async (user: CreateUserParams) => {
     );
 
     return parseStringify(newuser);
-  } catch (error: unknown) {
+  } catch (error: any) {
     // Check existing user
-    const appwriteError = error as { code: number };
-
-    if (appwriteError.code === 409) {
+    if (error && error?.code === 409) {
       const existingUser = await users.list([
         Query.equal('email', [user.email]),
       ]);
@@ -68,19 +61,18 @@ export const registerPatient = async ({
   ...patient
 }: RegisterUserParams) => {
   try {
-    // Upload file ->  // https://appwrite.io/docs/references/cloud/client-web/storage#createFile
     let file;
     if (identificationDocument) {
-      // const inputFile =
-      //   identificationDocument &&
-      //   InputFile.fromBlob(
-      //     identificationDocument?.get('blobFile') as Blob,
-      //     identificationDocument?.get('fileName') as string
-      //   );
-      // file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
+      const inputFile =
+        identificationDocument &&
+        InputFile.fromBuffer(
+          identificationDocument?.get('blobFile') as Blob,
+          identificationDocument?.get('fileName') as string
+        );
+
+      file = await storage.createFile(BUCKET_ID!, ID.unique(), inputFile);
     }
 
-    // Create new patient document -> https://appwrite.io/docs/references/cloud/server-nodejs/databases#createDocument
     const newPatient = await databases.createDocument(
       DATABASE_ID!,
       PATIENT_COLLECTION_ID!,
