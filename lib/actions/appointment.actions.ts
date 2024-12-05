@@ -130,8 +130,6 @@ export const updateAppointment = async ({
       appointment
     );
 
-    console.log(updateAppointment);
-
     if (!updatedAppointment) throw Error;
 
     const smsMessage = `Greetings from CarePulse. ${
