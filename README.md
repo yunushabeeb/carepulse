@@ -2,6 +2,8 @@
 
 CarePulse is a healthcare web application built using Next.js. It allows users to schedule and manage their medical appointments, providing an intuitive and seamless experience to interact with healthcare providers. 🌐
 
+![Carepulse](./public/assets/carepulse.png)
+
 ## Features ✨
 
 - **Appointment Scheduling**: Users can submit appointment requests with their preferred doctor and schedule. 🗓️
