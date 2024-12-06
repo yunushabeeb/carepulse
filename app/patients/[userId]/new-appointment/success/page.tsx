@@ -13,6 +13,10 @@ const RequestSuccess = async ({
   const appointmentId = (searchParams?.appointmentId as string) || '';
   const appointment = await getAppointment(appointmentId);
 
+  if (!appointment) {
+    return <div>Loading...</div>;
+  }
+
   const doctor = Doctors.find(
     (doctor) => doctor.name === appointment.primaryPhysician
   );
@@ -73,7 +77,9 @@ const RequestSuccess = async ({
           </Link>
         </Button>
 
-        <p className="copyright">© 2024 CarePluse</p>
+        <p className="copyright mt-10 py-12">
+          © {new Date().getFullYear()} CarePluse
+        </p>
       </div>
     </div>
   );

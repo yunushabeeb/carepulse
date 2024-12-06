@@ -3,281 +3,347 @@
 @tailwind utilities;
 
 /* ========================================== TAILWIND STYLES */
+
+/* Base Layer */
 @layer base {
-  /* Remove scrollbar */
+  /* Remove scrollbar styles for a cleaner look */
   .remove-scrollbar::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    border-radius: 0px;
+    width: 0px; /* No width for scrollbar */
+    height: 0px; /* No height for scrollbar */
+    border-radius: 0px; /* No rounding for scrollbar edges */
   }
 
   .remove-scrollbar::-webkit-scrollbar-track {
-    background: transparent;
+    background: transparent; /* Transparent background for scrollbar track */
   }
 
   .remove-scrollbar::-webkit-scrollbar-thumb {
-    background: transparent;
-    border-radius: 0px;
+    background: transparent; /* Transparent scrollbar thumb */
+    border-radius: 0px; /* No rounding for thumb */
   }
 
   .remove-scrollbar::-webkit-scrollbar-thumb:hover {
-    /* background: #1e2238; */
-    background: transparent;
+    background: transparent; /* Transparent on hover for thumb */
   }
 }
 
+/* Utilities Layer */
 @layer utilities {
-  /* ===== UTILITIES */
+  /* ===== Sidebar Styles */
   .sidebar {
     @apply remove-scrollbar w-full max-w-72 flex-col overflow-auto bg-black-800 px-7 py-10;
+    /* Sidebar styles: remove scrollbars, set width, flex layout, and add padding */
   }
 
   .left-sidebar {
     @apply hidden lg:flex;
+    /* Left sidebar: hidden on small screens, shown on large screens */
   }
 
   .right-sidebar {
     @apply hidden xl:flex;
+    /* Right sidebar: hidden on smaller screens, shown on extra large screens */
   }
 
   .clip-text {
     @apply bg-clip-text text-transparent;
+    /* Clipped text effect */
   }
 
   .bg-image {
     @apply bg-black-900 bg-light-rays bg-cover bg-no-repeat;
+    /* Background image styles */
   }
 
+  /* Header and sub-header styles */
   .header {
     @apply text-32-bold md:text-36-bold;
+    /* Larger text on medium screens for header */
   }
 
   .sub-header {
     @apply text-18-bold md:text-24-bold;
+    /* Larger text on medium screens for sub-header */
   }
 
+  /* Container layout */
   .container {
     @apply relative flex-1 overflow-y-auto px-[5%];
+    /* Main container with flexible layout and auto-scroll for overflow */
   }
 
   .sub-container {
     @apply mx-auto flex size-full flex-col py-10;
+    /* Sub-container with centered layout and padding */
   }
 
+  /* Side image style */
   .side-img {
     @apply hidden h-full object-cover md:block;
+    /* Side image: hidden on smaller screens, shown on medium and up */
   }
 
+  /* Copyright text */
   .copyright {
     @apply text-14-regular justify-items-end text-center text-dark-600 xl:text-left;
+    /* Copyright text aligned to the left on large screens */
   }
 
-  /* ==== SUCCESS */
+  /* ===== SUCCESS Section Styles */
   .success-img {
     @apply m-auto flex flex-1 flex-col items-center justify-between gap-10 py-10;
+    /* Centered success image with flexible layout */
   }
 
   .request-details {
     @apply flex w-full flex-col items-center gap-8 border-y-2 border-dark-400 py-8 md:w-fit md:flex-row;
+    /* Request details: column layout on small screens, row layout on medium */
   }
 
-  /* ===== ADMIN */
+  /* ===== ADMIN Section Styles */
   .admin-header {
     @apply sticky top-3 z-20 mx-3 flex items-center justify-between rounded-2xl bg-dark-200 px-[5%] py-5 shadow-lg xl:px-12;
+    /* Admin header: sticky at the top with padding, shadow, and rounded corners */
   }
 
   .admin-main {
     @apply flex flex-col items-center space-y-6 px-[5%] pb-12 xl:space-y-12 xl:px-12;
+    /* Admin main section with column layout and spacing */
   }
 
   .admin-stat {
     @apply flex w-full flex-col justify-between gap-5 sm:flex-row xl:gap-10;
+    /* Admin stat: column layout on small screens, row layout on large screens */
   }
 
-  /* ==== FORM */
+  /* ===== FORM Section Styles */
   .radio-group {
     @apply flex h-full flex-1 items-center gap-2 rounded-md border border-dashed border-dark-500 bg-dark-400 p-3;
+    /* Radio group: flex layout with dashed border and padding */
   }
 
   .checkbox-label {
     @apply cursor-pointer text-sm font-medium text-dark-700 peer-disabled:cursor-not-allowed peer-disabled:opacity-70 md:leading-none;
+    /* Checkbox label: smaller text, pointer cursor, with disabled state styling */
   }
 
-  /* ==== File Upload */
+  /* ===== File Upload Styles */
   .file-upload {
-    @apply text-12-regular flex cursor-pointer  flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
+    @apply text-12-regular flex cursor-pointer flex-col items-center justify-center gap-3 rounded-md border border-dashed border-dark-500 bg-dark-400 p-5;
+    /* File upload: flex layout with dashed border and padding */
   }
 
   .file-upload_label {
     @apply flex flex-col justify-center gap-2 text-center text-dark-600;
+    /* Label for file upload with centered text */
   }
 
-  /* ==== Stat Card */
+  /* ===== Stat Card Styles */
   .stat-card {
     @apply flex flex-1 flex-col gap-6 rounded-2xl bg-cover p-6 shadow-lg;
+    /* Stat card with flexible layout, background cover, and shadow */
   }
 
-  /* ==== Status Badge */
+  /* ===== Status Badge Styles */
   .status-badge {
     @apply flex w-fit items-center gap-2 rounded-full px-4 py-2;
+    /* Status badge with rounded corners and padding */
   }
 
-  /* Data Table */
+  /* ===== Data Table Styles */
   .data-table {
     @apply z-10 w-full overflow-hidden rounded-lg border border-dark-400 shadow-lg;
+    /* Data table: full width with overflow hidden and rounded corners */
   }
 
   .table-actions {
     @apply flex w-full items-center justify-between space-x-2 p-4;
+    /* Table actions: flex layout with spacing between items */
   }
 
   /* ===== ALIGNMENTS */
   .flex-center {
     @apply flex items-center justify-center;
+    /* Center content in flex layout */
   }
 
   .flex-between {
     @apply flex items-center justify-between;
+    /* Space between items in flex layout */
   }
 
   /* ===== TYPOGRAPHY */
   .text-36-bold {
     @apply text-[36px] leading-[40px] font-bold;
+    /* Large bold text */
   }
 
   .text-24-bold {
     @apply text-[24px] leading-[28px] font-bold;
+    /* Medium bold text */
   }
 
   .text-32-bold {
     @apply text-[32px] leading-[36px] font-bold;
+    /* Larger bold text */
   }
 
   .text-18-bold {
     @apply text-[18px] leading-[24px] font-bold;
+    /* Smaller bold text */
   }
 
   .text-16-semibold {
     @apply text-[16px] leading-[20px] font-semibold;
+    /* Semibold text */
   }
 
   .text-16-regular {
     @apply text-[16px] leading-[20px] font-normal;
+    /* Regular text */
   }
 
   .text-14-medium {
     @apply text-[14px] leading-[18px] font-medium;
+    /* Medium text */
   }
 
   .text-14-regular {
     @apply text-[14px] leading-[18px] font-normal;
+    /* Smaller regular text */
   }
 
   .text-12-regular {
     @apply text-[12px] leading-[16px] font-normal;
+    /* Small regular text */
   }
 
   .text-12-semibold {
     @apply text-[12px] leading-[16px] font-semibold;
-  }
-
-  /* =====  SHADCN OVERRIDES */
-  .shad-primary-btn {
-    @apply bg-green-500 text-white !important;
-  }
-
-  .shad-danger-btn {
-    @apply bg-red-700 text-white !important;
-  }
-
-  .shad-gray-btn {
-    @apply border border-dark-500 cursor-pointer bg-dark-400 text-white !important;
-  }
-
-  .shad-input-label {
-    @apply text-14-medium text-dark-700 !important;
-  }
-
-  .shad-input {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-input-icon {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-textArea {
-    @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-combobox-item {
-    @apply data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 !important;
-  }
-
-  .shad-combobox-trigger {
-    @apply h-11 !important;
-  }
-
-  .shad-select-trigger {
-    @apply bg-dark-400  placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
-  }
-
-  .shad-select-content {
-    @apply bg-dark-400 border-dark-500 !important;
-  }
-
-  .shad-dialog {
-    @apply bg-dark-400 border-dark-500 !important;
-  }
-
-  .shad-dialog button {
-    @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
-  }
-
-  .shad-error {
-    @apply text-red-400 !important;
-  }
-
-  .shad-table {
-    @apply rounded-lg overflow-hidden !important;
-  }
-
-  .shad-table-row-header {
-    @apply border-b border-dark-400 text-light-200 hover:bg-transparent !important;
-  }
-
-  .shad-table-row {
-    @apply border-b border-dark-400 text-light-200 !important;
-  }
-
-  .shad-otp {
-    @apply w-full flex justify-between !important;
-  }
-
-  .shad-otp-slot {
-    @apply text-36-bold justify-center flex border border-dark-500 rounded-lg size-16 gap-4 !important;
-  }
-
-  .shad-alert-dialog {
-    @apply space-y-5 bg-dark-400 border-dark-500 outline-none !important;
-  }
-
-  .shad-sheet-content button {
-    @apply top-2 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
-  }
-
-  /* =====  REACT PHONE NUMBER INPUT OVERRIDES */
-  .input-phone {
-    @apply mt-2 h-11 rounded-md px-3 text-sm border bg-dark-400 placeholder:text-dark-600 border-dark-500 !important;
-  }
-
-  /* =====  REACT DATE PICKER OVERRIDES */
-  .date-picker {
-    @apply overflow-hidden border-transparent w-full placeholder:text-dark-600  h-11 text-14-medium rounded-md px-3 outline-none !important;
+    /* Small semibold text */
   }
 }
 
+/* =====  SHADCN OVERRIDES */
+/* Primary button style */
+.shad-primary-btn {
+  @apply bg-green-500 text-white !important;
+}
+
+/* Danger button style */
+.shad-danger-btn {
+  @apply bg-red-700 text-white !important;
+}
+
+/* Gray button with border style */
+.shad-gray-btn {
+  @apply border border-dark-500 cursor-pointer bg-dark-400 text-white !important;
+}
+
+/* Input label style */
+.shad-input-label {
+  @apply text-14-medium text-dark-700 !important;
+}
+
+/* Input field style */
+.shad-input {
+  @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+}
+
+/* Input field with icon style */
+.shad-input-icon {
+  @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+}
+
+/* Textarea style */
+.shad-textArea {
+  @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 focus-visible:ring-0 focus-visible:ring-offset-0 !important;
+}
+
+/* Combobox item style with disabled state */
+.shad-combobox-item {
+  @apply data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 !important;
+}
+
+/* Combobox trigger button style */
+.shad-combobox-trigger {
+  @apply h-11 !important;
+}
+
+/* Select input style */
+.shad-select-trigger {
+  @apply bg-dark-400 placeholder:text-dark-600 border-dark-500 h-11 focus:ring-0 focus:ring-offset-0 !important;
+}
+
+/* Content area of select dropdown */
+.shad-select-content {
+  @apply bg-dark-400 border-dark-500 !important;
+}
+
+/* Dialog box style */
+.shad-dialog {
+  @apply bg-dark-400 border-dark-500 !important;
+}
+
+/* Dialog button style */
+.shad-dialog button {
+  @apply focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+}
+
+/* Error text style */
+.shad-error {
+  @apply text-red-400 !important;
+}
+
+/* Table styling */
+.shad-table {
+  @apply rounded-lg overflow-hidden !important;
+}
+
+/* Table row header styling */
+.shad-table-row-header {
+  @apply border-b border-dark-400 text-light-200 hover:bg-transparent !important;
+}
+
+/* Regular table row styling */
+.shad-table-row {
+  @apply border-b border-dark-400 text-light-200 !important;
+}
+
+/* OTP input field layout */
+.shad-otp {
+  @apply w-full flex justify-between !important;
+}
+
+/* OTP slot styling */
+.shad-otp-slot {
+  @apply text-36-bold justify-center flex border border-dark-500 rounded-lg size-16 gap-4 !important;
+}
+
+/* Alert dialog box styling */
+.shad-alert-dialog {
+  @apply space-y-5 bg-dark-400 border-dark-500 outline-none !important;
+}
+
+/* Sheet content button styling */
+.shad-sheet-content button {
+  @apply top-2 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+}
+
+/* =====  REACT PHONE NUMBER INPUT OVERRIDES */
+/* Phone input field style */
+.input-phone {
+  @apply mt-2 h-11 rounded-md px-3 text-sm border bg-dark-400 placeholder:text-dark-600 border-dark-500 !important;
+}
+
+/* =====  REACT DATE PICKER OVERRIDES */
+/* Date picker input field style */
+.date-picker {
+  @apply overflow-hidden border-transparent w-full placeholder:text-dark-600 h-11 text-14-medium rounded-md px-3 outline-none !important;
+}
+
 /* =====  REACT-DATEPICKER OVERRIDES */
+/* Date picker container and individual date styles */
 .react-datepicker-wrapper.date-picker {
   display: flex;
   align-items: center;
@@ -295,48 +361,57 @@
   color: #abb8c4 !important;
 }
 
+/* Styling for current month and day names */
 .react-datepicker__current-month,
 .react-datepicker__day-name,
 .react-datepicker-time__header {
   color: #ffffff !important;
 }
 
+/* Datepicker triangle styling */
 .react-datepicker__triangle {
   fill: #1a1d21 !important;
   color: #1a1d21 !important;
   stroke: #1a1d21 !important;
 }
 
+/* Hover effect for time list items */
 .react-datepicker__time-list-item:hover {
   background-color: #363a3d !important;
 }
 
+/* Input field inside the datepicker */
 .react-datepicker__input-container input {
   background-color: #1a1d21 !important;
   width: 100%;
   outline: none;
 }
 
+/* Selected day styling in datepicker */
 .react-datepicker__day--selected {
   background-color: #24ae7c !important;
   color: #ffffff !important;
   border-radius: 4px;
 }
 
+/* Selected time item styling */
 .react-datepicker__time-list-item--selected {
   background-color: #24ae7c !important;
 }
 
+/* Time container styling */
 .react-datepicker__time-container {
   border-left: 1px solid #363a3d !important;
 }
 
+/* Time list item layout */
 .react-datepicker__time-list-item {
   display: flex !important;
   align-items: center !important;
 }
 
 /* =====  REACT PHONE NUMBER INPUT OVERRIDES */
+/* Styling for phone input field */
 .PhoneInputInput {
   outline: none;
   margin-left: 4px;
@@ -345,6 +420,7 @@
   font-weight: 500;
 }
 
+/* Placeholder styling for phone input */
 .PhoneInputInput::placeholder {
   color: #1a1d21;
 }
