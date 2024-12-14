@@ -120,6 +120,6 @@ bun run start
 
 We welcome contributions! If you want to improve or add new features, please fork the repository, create a branch, and submit a pull request.
 
-## License 📜
+## License ![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
